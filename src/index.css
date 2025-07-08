@@ -85,5 +85,161 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    /* Improve mobile scrolling */
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+  }
+
+  /* Improve text rendering on mobile */
+  html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+
+  /* Ensure better touch targets for mobile */
+  button, [role="button"], a {
+    @apply touch-manipulation;
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  body, html {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Improve focus visibility on mobile */
+  :focus-visible {
+    @apply outline-2 outline-primary outline-offset-2;
+  }
+
+  /* Custom responsive text utilities */
+  .text-responsive-hero {
+    font-size: clamp(1.25rem, 8vw, 5rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+
+  /* Hero name responsive sizing using clamp for perfect scaling */
+  .hero-name {
+    font-size: clamp(2rem, 12vw, 7rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    word-break: break-word;
+  }
+
+  /* Prevent text overflow on very small screens */
+  .break-words {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Optimize text rendering for large text */
+  .hero-text {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Ensure proper scaling on very small devices */
+  @media (max-width: 374px) {
+    .hero-name {
+      font-size: clamp(1.25rem, 11vw, 2rem);
+      line-height: 0.95;
+      letter-spacing: -0.015em;
+    }
+  }
+
+  /* Ultra small devices (< 320px) */
+  @media (max-width: 319px) {
+    .hero-name {
+      font-size: clamp(1rem, 13vw, 1.75rem);
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+  }
+
+  /* Medium screens and up - allow for larger sizes */
+  @media (min-width: 768px) {
+    .hero-name {
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 0.85;
+      letter-spacing: -0.025em;
+    }
+  }
+}
+
+@layer utilities {
+  .glitch {
+    position: relative;
+    color: hsl(var(--foreground));
+    animation: glitch-skew 1s infinite linear alternate-reverse;
+  }
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 hsl(var(--primary));
+    animation: glitch-anim 1s infinite linear alternate-reverse;
+  }
+  .glitch::after {
+    left: -2px;
+    text-shadow: -1px 0 hsl(var(--secondary));
+    animation: glitch-anim-2 1.5s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch-skew {
+    0% { transform: skewX(0deg); }
+    10% { transform: skewX(0deg); }
+    10.1% { transform: skewX(5deg); }
+    10.2% { transform: skewX(0deg); }
+    50% { transform: skewX(0deg); }
+    50.1% { transform: skewX(-8deg); }
+    50.2% { transform: skewX(0deg); }
+    80% { transform: skewX(0deg); }
+    80.1% { transform: skewX(3deg); }
+    80.2% { transform: skewX(0deg); }
+    100% { transform: skewX(0deg); }
+  }
+
+  @keyframes glitch-anim {
+    0% { clip-path: inset(50% 0 51% 0); }
+    20% { clip-path: inset(20% 0 21% 0); }
+    40% { clip-path: inset(80% 0 2% 0); }
+    60% { clip-path: inset(40% 0 41% 0); }
+    80% { clip-path: inset(90% 0 1% 0); }
+    100% { clip-path: inset(50% 0 51% 0); }
+  }
+
+  @keyframes glitch-anim-2 {
+    0% { clip-path: inset(0 0 95% 0); }
+    25% { clip-path: inset(50% 0 10% 0); }
+    50% { clip-path: inset(25% 0 50% 0); }
+    75% { clip-path: inset(70% 0 5% 0); }
+    100% { clip-path: inset(0 0 95% 0); }
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 7vw, 3.75rem);
+    word-break: break-word;
+  }
+
+  .role-text {
+    font-size: clamp(1rem, 4vw, 2.25rem);
+    line-height: 1.2;
+  }
+
+  .hero-name {
+    font-size: clamp(2rem, 12vw, 7rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    word-break: break-word;
   }
 }

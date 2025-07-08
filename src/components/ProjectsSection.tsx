@@ -50,31 +50,32 @@ const ProjectsSection = () => {
     : projects.filter(project => project.category === selectedCategory);
 
   return (
-    <section id="projects" className="py-20 bg-background">
-      <Container maxWidth="lg">
-        <Box className="text-center mb-16">
+    <section id="projects" className="py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 bg-background">
+      <Container maxWidth="lg" className="px-3 xs:px-4 sm:px-6 lg:px-8">
+        <Box className="text-center mb-8 xs:mb-10 sm:mb-12 md:mb-16">
           <Typography
             variant="h2"
-            className="text-4xl md:text-6xl font-orbitron font-bold text-foreground mb-6 animate-fade-in"
+            className="section-title font-orbitron font-bold text-foreground mb-3 xs:mb-4 sm:mb-6 animate-fade-in px-2 sm:px-0 glitch"
+            data-text="<PROJECTS/>"
           >
             {'<PROJECTS/>'}
           </Typography>
-          <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
+          <div className="w-12 xs:w-16 sm:w-20 md:w-24 h-1 bg-gradient-primary mx-auto mb-4 xs:mb-6 sm:mb-8"></div>
           <Typography
             variant="body1"
-            className="text-lg text-muted-foreground font-mono max-w-2xl mx-auto mb-12"
+            className="text-xs xs:text-sm sm:text-base md:text-lg text-muted-foreground font-mono max-w-xs xs:max-w-sm sm:max-w-md lg:max-w-2xl mx-auto mb-6 xs:mb-8 sm:mb-12 px-4 xs:px-2 sm:px-0"
           >
             Showcase of my technical expertise and creative problem-solving
           </Typography>
 
           {/* Category Filter */}
-          <Box className="flex flex-wrap justify-center gap-3 mb-12">
+          <Box className="flex flex-wrap justify-center gap-1.5 xs:gap-2 sm:gap-3 mb-6 xs:mb-8 sm:mb-12 px-2 sm:px-0">
             {categories.map((category) => (
               <Chip
                 key={category}
                 label={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`font-mono transition-all duration-300 cursor-pointer ${
+                className={`font-mono transition-all duration-300 cursor-pointer text-xs ${
                   selectedCategory === category
                     ? 'bg-primary text-primary-foreground shadow-glow-primary'
                     : 'bg-muted text-muted-foreground hover:bg-card hover:border-primary'
@@ -84,7 +85,7 @@ const ProjectsSection = () => {
           </Box>
         </Box>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 md:gap-8">
           {filteredProjects.map((project, index) => (
             <Card 
               key={index}
@@ -94,47 +95,47 @@ const ProjectsSection = () => {
               <Box className="relative overflow-hidden">
                 <CardMedia
                   component="img"
-                  className="h-48 w-full object-cover"
+                  className="h-32 xs:h-36 sm:h-40 md:h-48 w-full object-cover"
                   image={project.image}
                   alt={project.title}
                 />
                 
                 {/* Hover Overlay */}
-                <Box className="absolute inset-0 bg-background/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
+                <Box className="absolute inset-0 bg-background/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-3 xs:space-x-4">
                   <IconButton
                     href={project.github}
                     target="_blank"
-                    className="text-foreground hover:text-primary transition-colors bg-card border border-border hover:border-primary"
+                    className="text-foreground hover:text-primary transition-colors bg-card border border-border hover:border-primary p-2 xs:p-3"
                   >
-                    <GitHub />
+                    <GitHub className="text-lg xs:text-xl" />
                   </IconButton>
                   <IconButton
                     href={project.live}
                     target="_blank"
-                    className="text-foreground hover:text-primary transition-colors bg-card border border-border hover:border-primary"
+                    className="text-foreground hover:text-primary transition-colors bg-card border border-border hover:border-primary p-2 xs:p-3"
                   >
-                    <Launch />
+                    <Launch className="text-lg xs:text-xl" />
                   </IconButton>
                 </Box>
               </Box>
 
-              <CardContent className="p-6">
+              <CardContent className="p-3 xs:p-4 sm:p-6">
                 <Typography
                   variant="h6"
-                  className="font-rajdhani font-bold text-foreground mb-3"
+                  className="font-rajdhani font-bold text-foreground mb-2 sm:mb-3 text-sm xs:text-base sm:text-lg"
                 >
                   {project.title}
                 </Typography>
                 
                 <Typography
                   variant="body2"
-                  className="text-muted-foreground font-mono text-sm leading-relaxed mb-4"
+                  className="text-muted-foreground font-mono text-xs leading-relaxed mb-3 sm:mb-4 line-clamp-3 min-h-[3rem] xs:min-h-[3.5rem]"
                 >
                   {project.description}
                 </Typography>
 
-                <Box className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, techIndex) => (
+                <Box className="flex flex-wrap gap-1 xs:gap-1.5 sm:gap-2">
+                  {project.technologies.slice(0, 4).map((tech, techIndex) => (
                     <Chip
                       key={techIndex}
                       label={tech}
@@ -142,22 +143,29 @@ const ProjectsSection = () => {
                       className="bg-muted text-muted-foreground font-mono text-xs border border-border"
                     />
                   ))}
+                  {project.technologies.length > 4 && (
+                    <Chip
+                      label={`+${project.technologies.length - 4}`}
+                      size="small"
+                      className="bg-muted text-muted-foreground font-mono text-xs border border-border"
+                    />
+                  )}
                 </Box>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        <Box className="text-center mt-16">
-          <Typography className="text-muted-foreground font-mono mb-4">
+        <Box className="text-center mt-8 xs:mt-10 sm:mt-12 md:mt-16">
+          <Typography className="text-muted-foreground font-mono mb-3 sm:mb-4 text-xs xs:text-sm sm:text-base px-4 xs:px-2 sm:px-0">
             More projects available on
           </Typography>
           <IconButton
             href="https://github.com/Muberser2611"
             target="_blank"
-            className="text-foreground hover:text-primary transition-all duration-300 hover:shadow-glow-primary transform hover:scale-110"
+            className="text-foreground hover:text-primary transition-all duration-300 hover:shadow-glow-primary transform hover:scale-110 p-2 xs:p-3"
           >
-            <GitHub className="text-4xl" />
+            <GitHub className="text-2xl xs:text-3xl sm:text-4xl" />
           </IconButton>
         </Box>
       </Container>

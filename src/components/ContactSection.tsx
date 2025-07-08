@@ -53,8 +53,8 @@ const ContactSection = () => {
     {
       icon: <Email className="text-primary text-2xl" />,
       title: 'Email',
-      value: 'hossainmuberser445@gmail.com',
-      link: 'mailto:hossainmuberser445@gmail.com'
+      value: 'hussainmubashir445@gmail.com',
+      link: 'mailto:hussainmubashir445@gmail.com'
     },
     {
       icon: <LocationOn className="text-secondary text-2xl" />,
@@ -65,8 +65,8 @@ const ContactSection = () => {
     {
       icon: <GitHub className="text-accent text-2xl" />,
       title: 'GitHub',
-      value: '@Muberser2611',
-      link: 'https://github.com/Muberser2611'
+      value: '@Mubashir2611',
+      link: 'https://github.com/Mubashir2611'
     }
   ];
 
@@ -94,38 +94,39 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-card">
-      <Container maxWidth="lg">
-        <Box className="text-center mb-16">
+    <section id="contact" className="py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 bg-card">
+      <Container maxWidth="lg" className="px-3 xs:px-4 sm:px-6 lg:px-8">
+        <Box className="text-center mb-8 xs:mb-10 sm:mb-12 md:mb-16">
           <Typography
             variant="h2"
-            className="text-4xl md:text-6xl font-orbitron font-bold text-foreground mb-6 animate-fade-in"
+            className="section-title font-orbitron font-bold text-foreground mb-3 xs:mb-4 sm:mb-6 animate-fade-in px-2 sm:px-0 glitch"
+            data-text="<Contact/>"
           >
-            {'<CONTACT/>'}
+            {'<Contact/>'}
           </Typography>
-          <div className="w-24 h-1 bg-gradient-secondary mx-auto mb-8"></div>
+          <div className="w-12 xs:w-16 sm:w-20 md:w-24 h-1 bg-gradient-secondary mx-auto mb-4 xs:mb-6 sm:mb-8"></div>
           <Typography
             variant="body1"
-            className="text-lg text-muted-foreground font-mono max-w-2xl mx-auto"
+            className="text-xs xs:text-sm sm:text-base md:text-lg text-muted-foreground font-mono max-w-xs xs:max-w-sm sm:max-w-md lg:max-w-2xl mx-auto px-4 xs:px-2 sm:px-0"
           >
             Let's connect and build something amazing together
           </Typography>
         </Box>
 
-        <div className="grid md:grid-cols-12 gap-12">
+        <div className="grid lg:grid-cols-12 gap-6 xs:gap-8 sm:gap-12">
           {/* Contact Form */}
-          <div className="md:col-span-7">
+          <div className="lg:col-span-7">
             <Card className="bg-background border border-border hover:border-primary transition-all duration-300 hover:shadow-glow-primary animate-slide-in-left">
-              <CardContent className="p-8">
+              <CardContent className="p-4 xs:p-5 sm:p-6 md:p-8">
                 <Typography
                   variant="h4"
-                  className="text-2xl font-rajdhani font-bold text-secondary mb-6"
+                  className="section-title font-rajdhani font-bold text-secondary mb-3 xs:mb-4 sm:mb-6"
                 >
                   Send Message
                 </Typography>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit} className="space-y-3 xs:space-y-4 sm:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 xs:gap-4 sm:gap-6">
                     <GlowTextField
                       fullWidth
                       label="Your Name"
@@ -133,6 +134,7 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
+                      size="small"
                     />
                     <GlowTextField
                       fullWidth
@@ -142,6 +144,7 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
+                      size="small"
                     />
                   </div>
 
@@ -152,6 +155,7 @@ const ContactSection = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
+                    size="small"
                   />
 
                   <GlowTextField
@@ -159,7 +163,7 @@ const ContactSection = () => {
                     label="Your Message"
                     name="message"
                     multiline
-                    rows={6}
+                    rows={4}
                     value={formData.message}
                     onChange={handleChange}
                     required
@@ -170,7 +174,7 @@ const ContactSection = () => {
                     variant="contained"
                     size="large"
                     endIcon={<Send />}
-                    className="bg-gradient-primary hover:shadow-glow-primary transition-all duration-300 transform hover:scale-105 font-rajdhani font-bold text-lg px-8 py-3"
+                    className="bg-gradient-primary hover:shadow-glow-primary transition-all duration-300 transform hover:scale-105 font-rajdhani font-bold text-sm xs:text-base sm:text-lg px-4 xs:px-6 sm:px-8 py-2 sm:py-3 w-full sm:w-auto"
                   >
                     Send Message
                   </Button>
@@ -180,29 +184,31 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="md:col-span-5">
+          <div className="lg:col-span-5">
             <Box className="animate-slide-in-right">
               <Typography
                 variant="h4"
-                className="text-2xl font-rajdhani font-bold text-secondary mb-8"
+                className="section-title font-rajdhani font-bold text-secondary mb-4 xs:mb-6 sm:mb-8 px-2 sm:px-0"
               >
                 Get In Touch
               </Typography>
 
-              <Box className="space-y-6 mb-8">
+              <Box className="space-y-3 xs:space-y-4 sm:space-y-6 mb-4 xs:mb-6 sm:mb-8">
                 {contactInfo.map((info, index) => (
                   <Card
                     key={index}
                     className="bg-background border border-border hover:border-primary transition-all duration-300 hover:shadow-glow-primary transform hover:scale-105 animate-fade-in"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <CardContent className="p-4">
-                      <Box className="flex items-center space-x-4">
-                        <Box className="animate-float" style={{ animationDelay: `${index * 0.2}s` }}>
-                          {info.icon}
+                    <CardContent className="p-3 xs:p-4">
+                      <Box className="flex items-center space-x-3 xs:space-x-4">
+                        <Box className="animate-float flex-shrink-0" style={{ animationDelay: `${index * 0.2}s` }}>
+                          <div className="text-xl xs:text-2xl">
+                            {info.icon}
+                          </div>
                         </Box>
-                        <Box>
-                          <Typography className="font-rajdhani font-bold text-foreground">
+                        <Box className="min-w-0 flex-1">
+                          <Typography className="font-rajdhani font-bold text-foreground text-xs xs:text-sm sm:text-base">
                             {info.title}
                           </Typography>
                           {info.link ? (
@@ -210,12 +216,12 @@ const ContactSection = () => {
                               href={info.link}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-muted-foreground font-mono hover:text-primary transition-colors"
+                              className="text-muted-foreground font-mono hover:text-primary transition-colors text-xs break-all"
                             >
                               {info.value}
                             </a>
                           ) : (
-                            <Typography className="text-muted-foreground font-mono">
+                            <Typography className="text-muted-foreground font-mono text-xs">
                               {info.value}
                             </Typography>
                           )}
@@ -226,37 +232,39 @@ const ContactSection = () => {
                 ))}
               </Box>
 
-              <Box>
+              <Box className="mb-4 xs:mb-6 sm:mb-8 px-2 sm:px-0">
                 <Typography
                   variant="h6"
-                  className="font-rajdhani font-bold text-foreground mb-4"
+                  className="section-title font-rajdhani font-bold text-foreground mb-2 xs:mb-3 sm:mb-4"
                 >
                   Follow Me
                 </Typography>
-                <Box className="flex space-x-4">
+                <Box className="flex flex-wrap gap-2 xs:gap-3 sm:gap-4">
                   {socialLinks.map((social, index) => (
                     <IconButton
                       key={index}
                       href={social.href}
                       target="_blank"
                       aria-label={social.label}
-                      className="text-foreground hover:text-primary transition-all duration-300 hover:shadow-glow-primary transform hover:scale-110 bg-background border border-border hover:border-primary animate-fade-in"
+                      className="text-foreground hover:text-primary transition-all duration-300 hover:shadow-glow-primary transform hover:scale-110 bg-background border border-border hover:border-primary animate-fade-in p-2 xs:p-3"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      {social.icon}
+                      <div className="text-lg xs:text-xl sm:text-2xl">
+                        {social.icon}
+                      </div>
                     </IconButton>
                   ))}
                 </Box>
               </Box>
 
-              <Box className="mt-8 p-6 bg-background border border-border rounded-lg">
+              <Box className="p-3 xs:p-4 sm:p-6 bg-background border border-border rounded-lg mx-2 sm:mx-0">
                 <Typography
                   variant="h6"
-                  className="font-rajdhani font-bold text-primary mb-4"
+                  className="section-title font-rajdhani font-bold text-primary mb-2 xs:mb-3 sm:mb-4"
                 >
                   Let's Build Together
                 </Typography>
-                <Typography className="text-muted-foreground font-mono leading-relaxed">
+                <Typography className="text-muted-foreground font-mono leading-relaxed text-xs sm:text-sm">
                   Whether you have a project in mind, want to collaborate, or just want to say hello, 
                   I'm always excited to connect with fellow developers and creators. Drop me a message!
                 </Typography>

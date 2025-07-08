@@ -17,6 +17,14 @@ export default {
 				'2xl': '1400px'
 			}
 		},
+		screens: {
+			'xs': '475px',
+			'sm': '640px',
+			'md': '768px',
+			'lg': '1024px',
+			'xl': '1280px',
+			'2xl': '1536px',
+		},
 		extend: {
 			colors: {
 				border: 'hsl(var(--border))',
@@ -67,6 +75,13 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			fontSize: {
+				'hero-xs': ['1.25rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+				'hero-sm': ['1.75rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+				'hero-md': ['2.5rem', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
+				'hero-lg': ['4rem', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
+				'hero-xl': ['5rem', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
 			},
 			fontFamily: {
 				'mono': ['JetBrains Mono', 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', 'monospace'],
