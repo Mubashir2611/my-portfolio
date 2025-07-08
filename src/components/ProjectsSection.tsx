@@ -7,7 +7,7 @@ const ProjectsSection = () => {
     {
       title: 'Golden Glimpse',
       description: 'A MERN stack Time Capsule App that allows users to create digital "time capsules" containing messages, photos, or memories, and schedule them to be opened at a future date.',
-      image: '/api/placeholder/400/250',
+      image: '/assests/GitHubEmoji.jpg',
       technologies: ['JavaScript', 'Node.js', 'MongoDB', 'React', 'Express.js', 'Material-UI', 'Tailwind CSS'],
       github: 'https://github.com/Mubashir2611/Golden_Glimpse',
       live: '#',
@@ -16,7 +16,7 @@ const ProjectsSection = () => {
     {
       title: 'PixelGram',
       description: 'A full-stack Realtime Social App built with React, ShadCN, TypeScript, Tailwind CSS, AppWrite.',
-      image: '/api/placeholder/400/250',
+      image: '/assests/GoodMonster.jpg',
       technologies: ['React', 'Node.js', 'AppWrite', 'Tailwind CSS', 'ShadCN'],
       github: 'https://github.com/Mubashir2611/PixelGram',
       live: 'https://pixel-gram.vercel.app',
@@ -25,7 +25,7 @@ const ProjectsSection = () => {
     {
       title: 'CityPulse3D',
       description: 'CityPulse3D is an interactive 3D city simulation built using Three.js. It procedurally generates a vibrant urban landscape, complete with buildings, roads, sidewalks, and street elements like lampposts and traffic lights, offering users an immersive experience of a bustling city environment.',
-      image: '/api/placeholder/400/250',
+      image: '/assests/GithubMoji.jpg',
       technologies: ['JavaScript', 'React', 'three.js', 'Gemini API', 'Rest API'],
       github: 'https://github.com/Mubashir2611/CityPulse3D',
       live: 'https://city-pulse3-d.vercel.app/',
@@ -34,7 +34,7 @@ const ProjectsSection = () => {
     {
       title: 'Space Shooter Game',
       description: 'A space shooter game built with Java Script,React and Three.js, Node.js,Type Script - featuring 3D graphics, responsive design, real time scoring system',
-      image: '/api/placeholder/400/250',
+      image: '/assests/GoodMonster.jpg',
       technologies: ['Java Script','React', 'Node', 'Three.js', 'Type Script'],
       github: 'https://github.com/Muberser2611',
       live: '#',
@@ -93,20 +93,11 @@ const ProjectsSection = () => {
             >
               <Box className="relative overflow-hidden">
                 <CardMedia
-                  component="div"
-                  className="h-48 bg-gradient-secondary relative"
-                >
-                  <Box className="absolute inset-0 flex items-center justify-center">
-                    <Code className="text-6xl text-background opacity-20" />
-                  </Box>
-                  <Box className="absolute top-4 right-4">
-                    <Chip
-                      label={project.category}
-                      size="small"
-                      className="bg-primary text-primary-foreground font-mono"
-                    />
-                  </Box>
-                </CardMedia>
+                  component="img"
+                  className="h-48 w-full object-cover"
+                  image={project.image}
+                  alt={project.title}
+                />
                 
                 {/* Hover Overlay */}
                 <Box className="absolute inset-0 bg-background/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
