@@ -36,7 +36,7 @@ const ProjectsSection = () => {
       description: 'A space shooter game built with Java Script,React and Three.js, Node.js,Type Script - featuring 3D graphics, responsive design, real time scoring system',
       image: '/assests/GoodMonster.jpg',
       technologies: ['Java Script','React', 'Node', 'Three.js', 'Type Script'],
-      github: 'https://github.com/Muberser2611',
+      github: 'https://github.com/Mubashir2611/Space-ShooterR3F',
       live: '#',
       category: 'Web App'
     },
@@ -161,7 +161,7 @@ const ProjectsSection = () => {
             More projects available on
           </Typography>
           <IconButton
-            href="https://github.com/Muberser2611"
+            href="https://github.com/Mubashir2611"
             target="_blank"
             className="text-foreground hover:text-primary transition-all duration-300 hover:shadow-glow-primary transform hover:scale-110 p-2 xs:p-3"
           >
